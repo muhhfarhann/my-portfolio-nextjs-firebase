@@ -1,2 +1,3 @@
 ## My - Portfolio 
-this is my simple portfolio
+This is my simple portfolio
+I build with MERN stack
