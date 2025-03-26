@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Membuat schema
 const commentsSchema = new mongoose.Schema({
-    nama: String,
+    nama: { type: String, unique: true },
     email: String,
     message: String,
 });

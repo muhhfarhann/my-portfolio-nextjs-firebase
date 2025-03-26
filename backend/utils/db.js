@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/my_portfolio', {
+const urlMongodbAtlas = "mongodb+srv://mfarhan:youllneverwalkalone@cluster0.iscw9.mongodb.net/my_portfolio?retryWrites=true&w=majority&appName=Cluster0";
+
+mongoose.connect(`${urlMongodbAtlas}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    maxPoolSize: 10 //batas maksimal koneksi agar lebih efisien
 });
 
 const db = mongoose.connection;

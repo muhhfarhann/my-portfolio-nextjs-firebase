@@ -2,18 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const { body, check, validationResult } = require("express-validator");
 const comments = require("./models/model");
+const compression = require("compression");
 
 const app = express();
 const port = 3000;
 app.use(cors());
 app.use(express.json());
+app.use(compression());
 
 require("./utils/db");
 
 // Endpoint untuk mendapatkan semua komentar
 app.get("/getComments", async (req, res) => {
     try {
-        const allComments = await comments.find();
+        const allComments = await comments.find({}, "nama email message"); // Hanya ambil field yang diperlukan
         res.json(allComments);
     } catch (e) {
         res.status(500).json({ error: e.message });
@@ -22,14 +24,6 @@ app.get("/getComments", async (req, res) => {
 
 // Endpoint untuk menambah komentar dengan validasi
 app.post("/contact", [
-    body("nama").custom(async (value) => {
-        const checkDuplicate = await comments.findOne({ nama: value });
-        if (checkDuplicate) {
-            console.log(`Nama "${value}" sudah ada di database.`);
-            throw new Error("Nama sudah digunakan");
-        }
-        return true;
-    }),
     check("email", "Email tidak valid").isEmail(),
     check("message", "Message tidak valid").isString(),
 ], async (req, res) => {
