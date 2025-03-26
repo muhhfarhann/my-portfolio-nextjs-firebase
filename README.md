@@ -1,3 +1,1 @@
-## My - Portfolio
-
---This is my simple portfolio
+## My - Portfolio this is my simple portfolio
