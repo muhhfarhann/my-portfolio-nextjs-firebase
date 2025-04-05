@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 // Membuat schema
-const commentsSchema = new mongoose.Schema({
-    nama: { type: String, unique: true },
-    email: String,
-    message: String,
+const messagesSchema = new mongoose.Schema({
+    nama: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String },
 });
 
 // Ekspor model
-const comments = mongoose.model('comments', commentsSchema);
+const messages = mongoose.model('messages', messagesSchema);
 
-module.exports = comments;
+module.exports = messages;

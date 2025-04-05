@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -42,7 +42,7 @@ body {
 }
 
 .beranda-nav::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: blue;
@@ -63,7 +63,7 @@ body {
 
 /* nav tentang saya */
 .tentang-saya::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: blue;
@@ -84,7 +84,7 @@ body {
 
 /* portfolio nav */
 .portfolio::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: blue;
@@ -105,7 +105,7 @@ body {
 
 /* clients nav */
 .clients::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: blue;
@@ -126,7 +126,7 @@ body {
 
 /* kontak nav */
 .kontak::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   background: blue;
@@ -143,4 +143,9 @@ body {
 
 .kontak.active:hover::after {
   @apply bg-slate-400;
+}
+
+/* certif */
+section.certif::-webkit-scrollbar {
+  display: none;
 }
