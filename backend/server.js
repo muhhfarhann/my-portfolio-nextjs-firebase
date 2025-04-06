@@ -11,10 +11,12 @@ const messages = require("./models/model");
 
 app.use(cors({
     origin: 'https://my-portfolio-frontend-lime.vercel.app', // Ganti dengan URL frontend
-    methods: ['POST', 'GET'],
+    methods: ['POST', 'GET', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
 }));
 
+// Tambahkan ini juga untuk menangani preflight OPTIONS secara manual jika perlu
+app.options('*', cors());
 
 const port = process.env.PORT || 3000;
 
