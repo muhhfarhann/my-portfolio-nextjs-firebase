@@ -26,15 +26,14 @@ export default function Contact({ onCommentAdded }) {
         .post(`${urlVercel}api/contact`, formData)
         .then((response) => console.log(response))
         .catch((error) => console.error(error));
-      setIsNotif((prev) => !prev);
-      console.log(isNotif);
+      // setIsNotif((prev) => !prev);
+      // console.log(isNotif);
 
       setFormData({ nama: '', email: '', message: '' }); // Reset form
 
       onCommentAdded(); // Panggil fungsi untuk mengambil ulang data komentar
     } catch (error) {
       console.error('Error submitting comment:', error);
-      alert('Gagal mengirim komentar');
     }
   };
 
