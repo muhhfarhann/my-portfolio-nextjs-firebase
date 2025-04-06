@@ -21,17 +21,14 @@ export default function Contact({ onCommentAdded }) {
     e.preventDefault();
 
     const urlVercel = `https://backend-portfolio-pink.vercel.app/`;
+
     try {
-      const response = await axios
-        .post(`${urlVercel}api/contact`, formData)
-        .then((response) => console.log(response))
-        .catch((error) => console.error(error));
-      // setIsNotif((prev) => !prev);
-      // console.log(isNotif);
+      const response = await axios.post(`${urlVercel}api/contact`, formData);
+      console.log('Response:', response.data);
 
-      setFormData({ nama: '', email: '', message: '' }); // Reset form
-
-      onCommentAdded(); // Panggil fungsi untuk mengambil ulang data komentar
+      setFormData({ nama: '', email: '', message: '' });
+      onCommentAdded();
+      setIsNotif((prev) => !prev); // Jangan lupa ini untuk trigger notifikasi
     } catch (error) {
       console.error('Error submitting comment:', error);
     }

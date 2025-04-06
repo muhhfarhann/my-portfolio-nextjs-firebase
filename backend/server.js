@@ -10,7 +10,7 @@ require("./utils/db"); // <-- hanya koneksi DB, jangan akses `app`
 const messages = require("./models/model");
 
 app.use(cors({
-    origin: 'https://my-portfolio-frontend-lime.vercel.app', // Ganti dengan URL frontend
+    origin: 'https://my-portfolio-frontend-lime.vercel.app/', // Ganti dengan URL frontend
     methods: ['POST', 'GET', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
 }));
